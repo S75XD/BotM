@@ -1,0 +1,38 @@
+''' By SaLeH insta @8_wvu '''
+
+import telebot,requests
+
+bot = telebot.TeleBot("6042858498:AAGJu5gdQc3ciEpQB9iPUUUk12qFOUQJKH0", parse_mode=None)
+
+@bot.message_handler(commands=['start'])
+def send_welcome(message):
+	userid = (f"{message.from_user.id}")
+
+	idfile = open("id.txt","r").read()
+	if userid in idfile:
+		bot.send_message(message.chat.id,"hello (:")
+
+	else:
+	  with open("id.txt","a") as kl :
+	    kl.write(f"{userid}\n")
+	    bot.send_message(message.chat.id,"hello (:")
+
+def chak():
+	response = requests.get("https://api.github.com/repos/rn0x/Altaqwaa-Islamic-Desktop-Application/releases/latest")
+	version = (response.json()["tag_name"])
+	if version!=version:
+		
+		chats = open('id.txt','r')
+		for chat in chats:
+			bot.send_message(chat,f"New version avlvule {version}")
+
+
+chak()
+
+# while True:
+# 	try:
+# 		bot.polling(none_stop=True, timeout=90)
+# 	except Exception as e:
+# 		time.sleep(5)
+# 		continue
+bot.polling(none_stop=True, timeout=90)
