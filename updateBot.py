@@ -20,11 +20,11 @@ def send_welcome(message):
 def chak():
 	response = requests.get("https://api.github.com/repos/rn0x/Altaqwaa-Islamic-Desktop-Application/releases/latest")
 	version = (response.json()["tag_name"])
-	if version!=version:
+	if version!='v3.0.0':
 		
 		chats = open('id.txt','r')
 		for chat in chats:
-			bot.send_message(chat,f"New version avlvule {version}")
+			bot.send_message(chat,f"New version available {version}")
 
 
 chak()
