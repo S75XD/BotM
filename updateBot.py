@@ -24,7 +24,7 @@ def chak():
 	with open("oldVersion.txt","w") as oldVersion :
 		oldVersion.write(f"{version}\n")
 
-	if version<=oldVersion:
+	if version!=oldVersion:
 		
 		chats = open('id.txt','r')
 		for chat in chats:
