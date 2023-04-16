@@ -20,11 +20,11 @@ def send_welcome(message):
 def chak():
 	response = requests.get("https://raw.githubusercontent.com/S75XD/BotM/main/package.json")
 	version = (response.json()["version"])
-	# oldVersion = open("oldVersion.txt",'a').read()
-	with open("oldVersion.txt","a") as oldVersion :
+
+	with open("oldVersion.txt","w") as oldVersion :
 		oldVersion.write(f"{version}\n")
 
-	if version!=oldVersion:
+	if version<=oldVersion:
 		
 		chats = open('id.txt','r')
 		for chat in chats:
